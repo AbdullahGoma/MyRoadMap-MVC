@@ -1,0 +1,46 @@
+﻿@model List<Department>
+
+
+<table class="table table-bordered table-hover" width="50%">
+    <tr>
+        <th>
+            Department Name
+        </th>
+        <th>
+            Instructors
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <input type="button" onclick="AjaxCall(@item.ID)" value="Show" class="btn btn-success" />
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Add" asp-controller="Department" class="btn btn-alert-success">Add New Department</a>
+
+
+@section scripts{
+    <script>
+        function AjaxCall(ID) {
+            // var id = $("#id").val();
+            console.log(ID);
+            $.ajax({
+                url: "/Instructor/GetInstructor",
+                data: { "DepartmentID": ID },
+                success: function (result) {
+                    $("#div1").html(result);
+                }
+            });
+        }
+    </script>
+}
+
+
+
+<div style="background-color:burlywood" id="div1">
+</div>

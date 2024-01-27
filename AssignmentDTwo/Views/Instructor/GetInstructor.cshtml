@@ -1,0 +1,9 @@
+﻿@model List<Instructor>
+
+
+@foreach (var item in Model)
+{
+    <partial name="_InstructorCard" model="@item" />
+}
+
+

@@ -1,0 +1,26 @@
+﻿
+
+
+<h1>My First View</h1>
+<h2>Razor Syntax</h2>
+@* Block of C# Code *@
+@{
+    int x = 0;
+    int y = x + 44;
+}
+
+@DateTime.Now.ToLocalTime()
+
+@if(x > 0)
+{
+    <div>X is Greater than Zero @x</div>
+}
+else
+{
+    <div>X is Less than or Equal Zero = @x</div>
+}
+
+@for(int i = 0;i < 10; i++)
+{
+    <li>@i</li>
+}

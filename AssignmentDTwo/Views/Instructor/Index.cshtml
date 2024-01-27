@@ -1,0 +1,14 @@
+﻿@* Inherit From Razor Page *@
+@model List<Instructor>
+
+
+@{
+    Layout = "_MyLayout";
+}
+
+@foreach (var item in Model)
+{
+    <partial name="_InstructorCard" model="@item" />
+}
+
+<a href="Instructor\Add" class="btn btn-alert-success">Add New Instructor</a>

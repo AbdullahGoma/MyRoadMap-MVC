@@ -1,0 +1,26 @@
+﻿
+@model List<StudentNameWithDepartmentNameViewModel>
+
+@* @model List<(int ID, string StudentName,string DepartmentName)> *@
+
+<table class="table table-bordered table-hover" width="50%">
+    <tr>
+        <th>
+            Student ID
+        </th>
+        <th>
+            Student Name
+        </th>
+        <th>
+            Department Name
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.StudentName</td>
+            <td>@item.DepartmentName</td>
+        </tr>
+    }
+</table>

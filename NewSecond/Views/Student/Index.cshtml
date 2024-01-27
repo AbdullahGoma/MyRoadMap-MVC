@@ -1,0 +1,14 @@
+﻿@model List<Student>
+
+@foreach(var item in Model)
+{
+    <partial name="_StudentCard" model="@item" />
+}
+
+
+<a asp-action="Add" asp-controller="Student" class="btn btn-danger">New Student</a>
+@* 
+<a href="\Student\Edit\1" class="btn btn-success">Update</a>
+@Html.ActionLink("Update", "Edit", "Student", new { id = 1 }, new {@class="btn btn-success"})
+ *@
+<a href="\Student\Edit\1">Edit</a>

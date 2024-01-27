@@ -1,0 +1,22 @@
+﻿@model Instructor
+
+@* <form action="SaveAdd" method="get * data come from QueryString *"> *@
+
+@* post: data come from form *@
+
+<form asp-action="SaveAdd" asp-controller="Instructor" method="post">
+    <partial name="_AddEdit" />
+    
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>
+<br />
+
+<a asp-action="Index" asp-controller="Instructor" class="btn btn-success">Back To List</a>
+
+
+@* await RenderSectionAsync("Scripts", required: false) *@
+@* <<script src="~/lib/jquery/dist/jquery.js"></script> *@
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

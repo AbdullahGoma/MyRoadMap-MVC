@@ -1,0 +1,94 @@
+﻿@model Department
+
+@* Anchor Tag Vs. HTML Helper *@
+<div style="border:2px solid red">
+    <a href="\Department\index" class="btn btn-success">Show All Departments1</a>
+    <br />
+    @Html.ActionLink("Show All Departments2", "Index", "Department", null, new {@class="btn btn-success"})
+    <br />
+    <a class ="btn btn-success" asp-action="Index" asp-controller="Department">Show All Departments3</a>
+    <br />
+    <br />
+</div>
+
+@* Anchor Tag Vs. HTML Helper *@
+<div style="border:2px solid red; margin=10px">
+    <a href="\Student\Edit\1" class="btn btn-success">Update</a>
+    <br />
+    @Html.ActionLink("Update", "Edit", "Student", new { id = 1 }, new {@class="btn btn-success"})
+    <br />
+    <a asp-action="Edit" asp-controller="Student" asp-route-id="1" asp-route-age="23" asp-fragment="Div with Id" class="btn btn-success">Update</a>
+    <br />
+</div>
+@* <form action="\Department\SaveAdd\.." method="get"></form> *@
+@* Function , Controller Name *@
+
+@using(Html.BeginForm("SaveAdd", "Department", FormMethod.Post)){
+    <div>
+        @Html.LabelFor(d => d.Name)
+        @Html.EditorFor(d => d.Name)
+
+        @Html.LabelFor(d => d.ManagerName)
+        @Html.EditorFor(d => d.ManagerName)
+
+        <input type="submit" value="add" />
+    </div>
+}
+
+<input type="text" id="Name" class="form-control" style="background-color:lightgoldenrodyellow" />
+<br/>
+@* <input type="text" name="Name" id="Name" value="@Model.Name" class="form-control" /> *@
+
+<!--lossly type helper-->
+@Html.TextBox("Name", null, new {style="color:red",@class="form-control"})
+
+<!-- Html.TextBox("Name") search about:
+    ViewData["Name"] Or ViewBag.Name Or Model.Name Or empty -->
+<br/>
+<br/>
+
+<label for="Name">Department Name</label>
+<br />
+<br />
+@Html.LabelFor(e => e.Name)
+
+<br />
+<br />
+<!--Strong Type Helper-->
+@Html.TextBoxFor(d => d.Name, new {style="background-color:black;color:white",@class="form-control"})
+<!--base on Model search value="Model.Name"-->
+
+<br />
+<br />
+
+@* @Html.EditorFor(e => e.Name) *@
+
+<form>
+    <h2>Select Your Favourit Sport</h2>
+    @* <input type="checkbox" name="sport" value="football" />Football
+    <input type="checkbox" name="sport" value="volly" />volly *@
+    <input type="radio" name="gender" value="Male" /> Male
+    <input type="radio" name="gender" value="Female" /> Female
+    <input type="submit" value="submit" />
+</form>
+
+
+<form style="background-color:blue" method="get">
+    @Html.CheckBox("Agree") I Agree
+    @* <input type="checkbox" name="I Agree" value="true" /> Check Me
+    <input type="hidden" name="I Agree" value="false" />  *@
+    <br />
+    <input type="submit" value="click" />
+</form>
+
+
+@Html.EditorFor(x => x.Name,
+new{
+    htmlAttributes = new {
+        @class = "form-controll", @placeholder = "Enter First Name"
+    }
+})
+
+
+
+

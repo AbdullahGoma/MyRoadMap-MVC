@@ -1,0 +1,7 @@
+﻿
+@* Injection In View *@
+@inject IStudentRepository InjService
+
+<h1>From Controller Service ID = @ViewBag.ServiceID</h1>
+
+<h1>From View Service ID = @InjService.ID</h1>

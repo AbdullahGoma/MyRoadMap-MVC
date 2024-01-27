@@ -1,0 +1,18 @@
+﻿@model Student 
+
+
+<form method="post" asp-action="SaveEdit" asp-controller="Student" asp-route-id="@Model.ID">
+    <partial name="_AddEdit" />
+    <input type="submit" class="btn btn-success" value="Save" />
+</form>
+
+
+@Html.ActionLink("Show All Students", "Index", "Student", null, new {@class="btn btn-success"})
+
+@* await RenderSectionAsync("Scripts", required: false) *@
+@section scripts{
+
+    @* <<script src="~/lib/jquery/dist/jquery.js"></script> *@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

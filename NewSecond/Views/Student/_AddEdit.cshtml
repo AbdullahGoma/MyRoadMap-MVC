@@ -1,0 +1,87 @@
+﻿@model Student
+
+@* @{
+    // List<Department> => SelectList:IEnumerable<SelectedListItem>
+    // First Parameter take Enumerator, Second Parameter take value, Third Parameter take text,
+    // Forth Parameter takes Selected Value
+    SelectList departmentList =
+                   new SelectList(ViewBag.Depts, "Id", "Name", Model.DepartmentID);
+} *@
+
+@{
+    SelectList departmentList;
+    if (Model != null)
+    {
+        departmentList =
+                   new SelectList(ViewBag.Depts, "ID", "Name", Model.DepartmentID);
+    }
+    else
+    {
+        departmentList =
+                   new SelectList(ViewBag.Depts, "ID", "Name");
+    }
+}
+
+
+
+
+
+
+<div asp-validation-summary="None" class="text-danger"></div>
+<input asp-for="ID" type="hidden" class="form-control" />
+<div>
+    <label asp-for="Name"></label>
+    @* <input type="text" name="Name" id="Name" value="@Model.Name" class="form-control" /> *@
+    @* @Html.EditorFor(s => s.Name, new { htmlAttributes = new {@class = "form-control"}}) *@
+    <input asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+    @* @Html.ValidationMessageFor(e => e.Name) *@
+</div>
+<div>
+    <label asp-for="Age">Age</label>
+    <input asp-for="Age" class="form-control" />
+    <span class="text-danger" asp-validation-for="Age"></span>
+</div>
+<div>
+    <label asp-for="Address">Address</label>
+    <input asp-for="Address" class="form-control" />
+    <span class="text-danger" asp-validation-for="Address"></span>
+</div>
+<div>
+    <label asp-for="Img"></label>
+    <input asp-for="Img" class="form-control" />
+    <span class="text-danger" asp-validation-for="Img"></span>
+</div>
+<div>
+    <label asp-for="DepartmentID">Department ID</label>
+    @* <input type="text" name="Department" id="Department" value="@Model.Department" class="form-control" /> *@
+
+
+
+    @* First Parameter Takes Fancy Delegate, Second Parameter Takes SelectList,
+    Third Parameter Takes Option lable, Forth Parameter Takes HTML Attribute *@
+    @* @Html.DropDownListFor(s => s.DepartmentID, departmentList, "-- Select DepartmentID --", new {@class="form-control", style="color:blue"}) *@
+
+
+    <select asp-for="DepartmentID" asp-items="departmentList" class="form-control">
+        <option>--DepartmentID--</option>
+    </select>
+
+    <span class="text-danger" asp-validation-for="DepartmentID"></span>
+
+    @* <select name="DepartmentID" id="DepartmentID" class="form-control">
+    @foreach(var item in ViewBag.Depts)
+    {
+    if(item.Id == Model.DepartmentID)
+    {
+    <option value="@item.Id" selected>@item.Name</option>
+    }
+    else
+    {
+    <option value="@item.Id">@item.Name</option>
+    }
+
+    }
+    </select> *@
+
+</div>

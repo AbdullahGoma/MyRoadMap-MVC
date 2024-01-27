@@ -1,0 +1,15 @@
+﻿@model Instructor
+
+<form asp-action="SaveEdit" asp-controller="Instructor" asp-route-ID="@Model.ID" method="post">
+    <partial name="_AddEdit" />
+
+    <input type="submit" class="btn btn-success" value="Save" />
+</form>
+
+
+@* await RenderSectionAsync("Scripts", required: false) *@
+@* <<script src="~/lib/jquery/dist/jquery.js"></script> *@
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

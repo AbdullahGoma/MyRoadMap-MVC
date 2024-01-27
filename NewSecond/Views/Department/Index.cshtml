@@ -1,0 +1,47 @@
+﻿@* Inherit From Razor Page *@
+@model List<Department>
+
+@{
+    Layout = "_LayoutTemp";
+    // Layout = null;
+}
+
+
+@* @section HeaderAd{
+    <h2>Ad From Index number of Department @Model.Count()</h2>
+}
+
+@section MenuAd{
+    <h2>Ad From Index</h2>
+}
+
+@section FooterAd{
+    <h2>Ad From Index</h2>
+} *@
+
+@* Any Thing Not in section will be in RenderBody *@
+
+<table class="table table-bordered table-hover" width="50%">
+    <tr>
+        <th>
+            Department Name
+        </th>
+        <th>
+            Manager Name
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.ManagerName</td>
+            <td>
+                <input type="button" onclick="AjaxCall(@item.ID)" value="Show" class="btn btn-success" />
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Add" asp-controller="Department" class="btn btn-alert-success">Add New Department</a>
+
+

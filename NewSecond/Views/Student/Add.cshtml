@@ -1,0 +1,16 @@
+﻿@model Student
+
+<form method="post" asp-action="SaveAdd" asp-controller="Student">
+    <partial name="_AddEdit" />
+    <input type="submit" class="btn btn-success" value="Save" />
+</form>
+<br />
+
+<a asp-action="Index" asp-controller="Student" class="btn btn-success">Back To List</a>
+
+@* await RenderSectionAsync("Scripts", required: false) *@
+@* <<script src="~/lib/jquery/dist/jquery.js"></script> *@
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

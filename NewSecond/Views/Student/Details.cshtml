@@ -1,0 +1,19 @@
+﻿@model Student 
+
+<partial name="_StudentCard" model="@Model" />
+
+<a class="btn btn-danger" asp-action="Delete" asp-controller="Student" asp-route-id="@Model.ID"
+onclick="ConfirmDelete()"
+>Delete</a>
+
+
+<script>
+    function ConfirmDelete() {
+        var accept = confirm("Are you Sure?");
+        if(accept == false){
+            event.preventDefault(); // Prevent go to server
+        }
+    }
+</script>
+
+

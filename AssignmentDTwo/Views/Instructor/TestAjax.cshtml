@@ -1,0 +1,26 @@
+﻿<div style="background-color:burlywood" id="div1">
+</div>
+
+<input type="text" id="id" />
+
+<input type="button" onclick="AjaxCall()" value="Show" class="btn btn-success" />
+
+@section scripts{
+    <script>
+        function AjaxCall() {
+            // var id = document.getElementById("id").value;
+            var id = $("#id").val();
+            $.ajax({
+                url: "/Instructor/TestPartial",
+                data: { "instructorID": id },
+                success: function (result) {
+                    $("#div1").html(result);
+                }
+            });
+        }
+    </script>
+}
+
+
+
+

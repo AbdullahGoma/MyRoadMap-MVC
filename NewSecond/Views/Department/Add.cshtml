@@ -1,0 +1,18 @@
+﻿@model Department
+
+
+@* <form action="SaveAdd" method="get * data come from QueryString *"> *@
+
+<form action="SaveAdd" method="post@* data come from form *@" >
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="Name" id="Name" 
+            class="form-control" value="@Model.Name" placeholder="Eneter Department Name" />
+    </div>
+    <div>
+        <label for="managername">Manger Name</label>
+        <input type="text" name="ManagerName" id="ManagerName" 
+               class="form-control" value="@Model.ManagerName" placeholder="Eneter Instructor Name" />
+    </div>
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>

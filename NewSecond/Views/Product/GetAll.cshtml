@@ -1,0 +1,11 @@
+﻿
+
+@foreach(var item in Model)
+{
+    <div style="border:1px solid red">
+        @item.ID
+        @item.Name
+        @item.Price
+        <img src="\images\@item.Img" style="width:200px;height:200px" />
+    </div>
+}

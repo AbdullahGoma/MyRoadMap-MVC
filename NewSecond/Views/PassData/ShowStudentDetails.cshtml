@@ -1,0 +1,24 @@
+﻿@model StudentNameWithDepartmentNameViewModel
+
+@* How to Show IQueryable in View *@
+@* @model IQueryable *@
+
+<table class="table table-bordered table-hover" width="50%">
+    <tr>
+        <th>
+            Student ID
+        </th>
+        <th>
+            Student Name
+        </th>
+        <th>
+            Department Name
+        </th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.StudentName</td>
+        <td style="background-color: @Model.Color">@Model.DepartmentName</td>
+    </tr>
+</table>
+
